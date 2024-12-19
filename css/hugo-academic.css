@@ -266,10 +266,10 @@ blockquote p:last-child {
 
 #profile .portrait {
   background-image: url('../img/portrait.jpg');
-  width: 200px;
-  height: 200px;
+  width: 330px;
+  height: 180px;
   margin: 0 auto;
-  border-radius: 25%;
+  border-radius: 10%;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
