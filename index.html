@@ -498,8 +498,8 @@
     }
     .now-row {
       display: flex;
-      align-items: center;
-      gap: 22px;
+      align-items: flex-start;
+      gap: 14px 22px;
       font-size: 14.5px;
       color: var(--text-muted);
       flex-wrap: wrap;
@@ -515,13 +515,30 @@
       border: 1px solid var(--accent-glow);
       border-radius: 999px;
       white-space: nowrap;
+      flex-shrink: 0;
+      align-self: center;
     }
-    .now-row .sep {
-      width: 4px; height: 4px;
-      background: var(--text-dim);
+    .now-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      line-height: 1.55;
+    }
+    .now-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      transform: translateY(-2px);
+      opacity: 0.85;
     }
     .now-row strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 760px) {
+      .now-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .now-label { align-self: flex-start; }
+    }
 
     /* ============================================================
        About
@@ -1473,11 +1490,10 @@
       <div class="now-band">
         <div class="now-row">
           <span class="now-label">// Now</span>
-          <span>Architecting <strong>multi-LLM document extraction</strong> at CVS</span>
-          <span class="sep"></span>
-          <span>Standing up <strong>client-level chargebacks</strong> across foundational ML services (1M+ events)</span>
-          <span class="sep"></span>
-          <span>Exploring <strong>runtime-level LLM inference</strong> optimization</span>
+          <span class="now-item">Architecting <strong>multi-LLM document extraction</strong> at CVS</span>
+          <span class="now-item">Shipping features to <strong>UQLM</strong> — long-text scorers, device detection</span>
+          <span class="now-item">Standing up <strong>client-level chargebacks</strong> across foundational ML services (1M+ events)</span>
+          <span class="now-item">Exploring <strong>runtime-level LLM inference</strong> optimization</span>
         </div>
       </div>
     </div>
